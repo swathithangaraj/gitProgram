@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * ÕıÔò±í´ïÊ½
+ * æ­£åˆ™è¡¨è¾¾å¼
  * @author ronaldoGT
  *
  */
@@ -18,7 +18,7 @@ public class Regular {
 	}
 	
 	public void text(){
-		String str = "<p>ÕâÊÇÒ»¶Î²âÊÔÊı¾İ123text</p>"+
+		String str = "<p>è¿™æ˜¯ä¸€æ®µæµ‹è¯•æ•°æ®123text</p>"+
 						"<img>2341444234</img>"+
 						"<span>232141<p>hha</p>ee</span>";
 		String number = "\\d+";

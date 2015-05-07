@@ -1,5 +1,5 @@
 package file;
-
+ 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,53 +9,53 @@ import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
-
+ 
 import javax.tools.JavaCompiler;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 import javax.tools.JavaCompiler.CompilationTask;
-
+ 
 public class DongTaiBianYi {
-
-	/**
-	 * @param args
-	 * @throws Exception 
-	 * £¤-824.40	-824.40	
-	 */
-	public static void main(String[] args)  throws Exception {
-		// TODO Auto-generated method stub
-		DongTaiBianYi dtby = new DongTaiBianYi();
-		//dtby.textJavaCompiler();
-		//dtby.textStringWrite();
-	
-	}
-
-	public void textJavaCompiler() throws IOException{
-		// ±àÒë³ÌĞò
-		JavaCompiler javaCompiler = ToolProvider.getSystemJavaCompiler();
-		int result = javaCompiler.run(null, null, null, "-d","./src/","./src/file/MyText.java");
-        System.out.println( result == 0 ? "¹§Ï²±àÒë³É¹¦" : "¶Ô²»Æğ±àÒëÊ§°Ü");
-        
-	}
-	
-	public void textStringWrite() throws Exception{
-		JavaCompiler complier = ToolProvider.getSystemJavaCompiler();     
+ 
+    /**
+     * @param args
+     * @throws Exception 
+     * ï¿¥-824.40 -824.40 
+     */
+    public static void main(String[] args)  throws Exception {
+        // TODO Auto-generated method stub
+        DongTaiBianYi dtby = new DongTaiBianYi();
+        //dtby.textJavaCompiler();
+        //dtby.textStringWrite();
+     
+    }
+ 
+    public void textJavaCompiler() throws IOException{
+        // ç¼–è¯‘ç¨‹åº
+        JavaCompiler javaCompiler = ToolProvider.getSystemJavaCompiler();
+        int result = javaCompiler.run(null, null, null, "-d","./src/","./src/file/MyText.java");
+        System.out.println( result == 0 ? "æ­å–œç¼–è¯‘æˆåŠŸ" : "å¯¹ä¸èµ·ç¼–è¯‘å¤±è´¥");
+         
+    }
+     
+    public void textStringWrite() throws Exception{
+        JavaCompiler complier = ToolProvider.getSystemJavaCompiler();     
         StandardJavaFileManager sjf =   
                 complier.getStandardFileManager(null, null, null);  
         Iterable it = sjf.getJavaFileObjects("D:/Hello.java");
         CompilationTask task = complier.getTask(null, sjf, null, null, null, it);  
-        task.call();  //µ÷ÓÃ´´½¨  ,´´½¨classÎÄ¼ş
+        task.call();  //è°ƒç”¨åˆ›å»º  ,åˆ›å»ºclassæ–‡ä»¶
         sjf.close();  
-          
-        URL urls[] = new URL[]{ new URL("file:/D:/")}; //´¢´æÎÄ¼şÄ¿Â¼µÄµØÖ·
-        URLClassLoader uLoad = new URLClassLoader(urls);  //classloader´ÓÄÄ¸öÄ¿Â¼ÕÒ£¿ 
+           
+        URL urls[] = new URL[]{ new URL("file:/D:/")}; //å‚¨å­˜æ–‡ä»¶ç›®å½•çš„åœ°å€
+        URLClassLoader uLoad = new URLClassLoader(urls);  //classloaderä»å“ªä¸ªç›®å½•æ‰¾ï¼Ÿ 
         //uLoad.loadClass("Hello");
-        Class c = uLoad.loadClass("Hello");  //ÕÒÄÄ¸öclassÎÄ¼ş ×¢Òâ²»´øºó×ºÃû  
-        //c.newInstance();  //´´½¨Ò»¸öÊµÀı  
-        
+        Class c = uLoad.loadClass("Hello");  //æ‰¾å“ªä¸ªclassæ–‡ä»¶ æ³¨æ„ä¸å¸¦åç¼€å  
+        //c.newInstance();  //åˆ›å»ºä¸€ä¸ªå®ä¾‹  
+         
         Method method = c.getMethod("printString");
         String string = method.invoke(c.newInstance()).toString();
         System.out.println(string);
-	}
-
+    }
+ 
 }

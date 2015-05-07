@@ -1,7 +1,7 @@
 package algorithmProblem;
 
 /**
- * ¾ØÕó   ²âÊÔ
+ * çŸ©é˜µ 
  * @author ronaldoGT
  *
  */
@@ -72,7 +72,7 @@ public class Matrix {
 	}
 	
 	/**
-	 * ÉßĞÎ¾ØÕó
+	 * è›‡å½¢çŸ©é˜µ
 	 * @param n
 	 * 
 	 *   1  3  4 10 11 21 22 
@@ -108,7 +108,7 @@ public class Matrix {
 	}
 	
 	/**
-	 * ´ó»Ø»·¾ØÕó
+	 * å¤§å›ç¯çŸ©é˜µ
 	 * @param n
 	 *  1 24 23 22 21 20 19 
 		2 25 40 39 38 37 18 
@@ -122,7 +122,7 @@ public class Matrix {
 		matrix = new int[n][n];  
 		for (int num = 1, x = 0, y = 0, xDir = 1, yDir = 0; num <= n * n; num++) {  
 			 matrix[x][y] = num;  
-		     if (x + xDir < 0 || y + yDir < 0 || x + xDir == n || y + yDir == n || matrix[x + xDir][y + yDir] != 0) {//Èç¹ûµ½±ß½çÁË¾Í»»·½Ïò  
+		     if (x + xDir < 0 || y + yDir < 0 || x + xDir == n || y + yDir == n || matrix[x + xDir][y + yDir] != 0) {//è¾¹ç•Œæ¡ä»¶ 
 		         if (xDir != 0) {  
 		             yDir = xDir;  
 		             xDir = 0;  
@@ -134,18 +134,7 @@ public class Matrix {
 		     x += xDir;  
 		     y += yDir;  
 		} 
-	}
-		
-	public void snake(int n){
-		matrix = new int[n][n];
-		boolean b = false;
-		int x= 0,y = 0,m = 1;
-		for(int i = 0; i < n; i++){
-			x = i;
-			
-		}
-	}
-	
+	}	
 }
 
 

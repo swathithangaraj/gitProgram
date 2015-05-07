@@ -1,18 +1,18 @@
 package entity;
 
 /**
- * Ñ§¿ÆÊµÌåÀà
+ * å­¦ç§‘å®žä½“ç±»
  * @author ronaldoGT
  *
  */
 public class Subject {
 
 	private String id;
-	//Äê¼Í
+	//å¹´çº§
 	private String gradeType;
-	//¿Î³Ì
+	//è¯¾ç¨‹
 	private String courseType;
-	//ÕÂ½Ú
+	//ç« 
 	private String chapterType;
 	
 	public Subject(){}
@@ -54,6 +54,6 @@ public class Subject {
 	}
 	
 	public String toString(){
-		return "id="+id+",,Äê¼¶ = "+gradeType+",,¿Î³Ì = "+courseType+",,ÕÂ½Ú = "+chapterType;
+		return "id="+id+",,å¹´çº§ = "+gradeType+",,è¯¾ç¨‹ = "+courseType+",,ç« èŠ‚ = "+chapterType;
 	}
 }

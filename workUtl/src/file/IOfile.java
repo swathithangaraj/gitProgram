@@ -1,5 +1,5 @@
 package file;
-
+ 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -11,145 +11,142 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-
+ 
 /**
- * Ìá¹©java   IO  ²Ù×÷
+ * æä¾›java   IO  æ“ä½œ
  * @author ronaldoGT
  *
  */
 public class IOfile {
-
-	/**
-	 * @param args
-	 */
-	private static IOfile ioFile = new IOfile();
-	private static String oldUrl = "E://FunshionMedia/ºÚ¿ÍµÛ¹ú/ÀÏÁº¹ÛÊÀ½ç-20130311.mp4";
-	private static String newUrl = "E://ÀÏÁº¹ÛÊÀ½ç-20130311.mp4";
-	
-	public static void main(String[] args) {
-		long star = System.nanoTime();
-		//ioFile.copyFile(new File(oldUrl),new File(newUrl));//601508919
-		//ioFile.copyDirectory(new File("D:/html5"),"E:/");
-		//ioFile.textFileChannel(new File(oldUrl),new File(newUrl));//1511679222
-		ioFile.textFileChannelReadWrite(new File(oldUrl),new File(newUrl));//1333882326
-		long end = System.nanoTime();
-		System.out.println(end-star);
-	}
-	
-	/**
-	 * ÎÄ¼şÍ¨µÀ ²âÊÔ
-	 * @param oldFile
-	 * @param newFile
-	 */
-	public void textFileChannel(File oldFile,File newFile){
-		FileChannel fis = null ;
-		FileChannel fos = null ; 
-		try {
-			fis = new FileInputStream(oldFile).getChannel();
-			fos = new FileOutputStream(newFile).getChannel();
-			fis.transferTo(0, fis.size(), fos);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			try {
-				fis.close();
-				fos.close();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	/**
-	 * ²âÊÔÎÄ¼şÍ¨µÀ   read£¬write·½·¨
-	 * @param oldFile
-	 * @param newFile
-	 */
-	public void textFileChannelReadWrite(File oldFile,File newFile){
-		FileChannel fis = null ;
-		FileChannel fos = null ; 
-		try {
-			fis = new FileInputStream(oldFile).getChannel();
-			fos = new FileOutputStream(newFile).getChannel();
-			ByteBuffer buf = ByteBuffer.allocate(1024*2);
-			while(fis.read(buf) != -1){
-				buf.flip();//×¼±¸Ğ´Èë£¬·ÀÖ¹ÆäËû¶ÁÈ¡£¬Ëø×¡ÎÄ¼ş  
-	            fos.write(buf);  
-	            buf.clear();//×¼±¸¶ÁÈ¡¡£½«»º³åÇøÇåÀíÍê±Ï£¬ÒÆ¶¯ÎÄ¼şÄÚ²¿Ö¸Õë  
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			try {
-				fis.close();
-				fos.close();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	/**
-	 * ¸´ÖÆÎÄ¼ş¼Ğ£¬Ç¶Ì×ÎÄ¼ş¼Ğ£¬ÒÔ¼°°üº¬µÄÎÄ¼ş
-	 * @param oldDirectory
-	 * @param newUrl
-	 */
-	public void copyDirectory(File oldDirectory,String newUrl){
-		File[] f=oldDirectory.listFiles();
-		File file = new File(newUrl);
-		String url;
-		url = oldDirectory.getName();
-		newUrl += "/"+url;
-		file = new File(newUrl);
-		file.mkdir();
-		for(File ff:f){
-			if(ff.isDirectory()){ 
-				copyDirectory(ff,newUrl);
-			}
-			if(ff.isFile()){
-				copyFile(ff,new File(newUrl+"/"+ff.getName()));
-			}	
-		}
-	
-	}
-	
-	
-	/**
-	 * ¸´ÖÆÎÄ¼ş
-	 * @param oldFile
-	 * @param newFile
-	 */
-	public void copyFile(File oldFile,File newFile){
-		InputStream fis = null;
-		OutputStream fos = null;
-		try {
-			fis = new BufferedInputStream(new FileInputStream(oldFile));
-			fos = new BufferedOutputStream(new FileOutputStream(newFile));
-			byte[] buf = new byte[1024*2];
-			int len ;
-			while((len = fis.read(buf)) != -1){
-				fos.write(buf, 0, len);
-			}
-			fos.flush();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			try {
-				fis.close();
-				fos.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-
+ 
+    /**
+     * @param args
+     */
+    private static IOfile ioFile = new IOfile();
+    private static String oldUrl = "E://FunshionMedia/é»‘å®¢å¸å›½/è€æ¢è§‚ä¸–ç•Œ-20130311.mp4";
+    private static String newUrl = "E://è€æ¢è§‚ä¸–ç•Œ-20130311.mp4";
+     
+    public static void main(String[] args) {
+        long star = System.nanoTime();
+        //ioFile.copyFile(new File(oldUrl),new File(newUrl));//601508919
+        //ioFile.copyDirectory(new File("D:/html5"),"E:/");
+        //ioFile.textFileChannel(new File(oldUrl),new File(newUrl));//1511679222
+        ioFile.textFileChannelReadWrite(new File(oldUrl),new File(newUrl));//1333882326
+        long end = System.nanoTime();
+        System.out.println(end-star);
+    }
+     
+    /**
+     * æ–‡ä»¶é€šé“ æµ‹è¯•
+     * @param oldFile
+     * @param newFile
+     */
+    public void textFileChannel(File oldFile,File newFile){
+        FileChannel fis = null ;
+        FileChannel fos = null ; 
+        try {
+            fis = new FileInputStream(oldFile).getChannel();
+            fos = new FileOutputStream(newFile).getChannel();
+            fis.transferTo(0, fis.size(), fos);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            try {
+                fis.close();
+                fos.close();
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+     
+    /**
+     * æµ‹è¯•æ–‡ä»¶é€šé“   readï¼Œwriteæ–¹æ³•
+     * @param oldFile
+     * @param newFile
+     */
+    public void textFileChannelReadWrite(File oldFile,File newFile){
+        FileChannel fis = null ;
+        FileChannel fos = null ; 
+        try {
+            fis = new FileInputStream(oldFile).getChannel();
+            fos = new FileOutputStream(newFile).getChannel();
+            ByteBuffer buf = ByteBuffer.allocate(1024*2);
+            while(fis.read(buf) != -1){
+                buf.flip();//å‡†å¤‡å†™å…¥ï¼Œé˜²æ­¢å…¶ä»–è¯»å–ï¼Œé”ä½æ–‡ä»¶  
+                fos.write(buf);  
+                buf.clear();//å‡†å¤‡è¯»å–ã€‚å°†ç¼“å†²åŒºæ¸…ç†å®Œæ¯•ï¼Œç§»åŠ¨æ–‡ä»¶å†…éƒ¨æŒ‡é’ˆ  
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            try {
+                fis.close();
+                fos.close();
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+     
+    /**
+     * å¤åˆ¶æ–‡ä»¶å¤¹ï¼ŒåµŒå¥—æ–‡ä»¶å¤¹ï¼Œä»¥åŠåŒ…å«çš„æ–‡ä»¶
+     * @param oldDirectory
+     * @param newUrl
+     */
+    public void copyDirectory(File oldDirectory,String newUrl){
+        File[] f=oldDirectory.listFiles();
+        File file = new File(newUrl);
+        String url;
+        url = oldDirectory.getName();
+        newUrl += "/"+url;
+        file = new File(newUrl);
+        file.mkdir();
+        for(File ff:f){
+            if(ff.isDirectory()){ 
+                copyDirectory(ff,newUrl);
+            }
+            if(ff.isFile()){
+                copyFile(ff,new File(newUrl+"/"+ff.getName()));
+            }   
+        }
+     
+    }
+     
+     
+    /**
+     * å¤åˆ¶æ–‡ä»¶
+     * @param oldFile
+     * @param newFile
+     */
+    public void copyFile(File oldFile,File newFile){
+        InputStream fis = null;
+        OutputStream fos = null;
+        try {
+            fis = new BufferedInputStream(new FileInputStream(oldFile));
+            fos = new BufferedOutputStream(new FileOutputStream(newFile));
+            byte[] buf = new byte[1024*2];
+            int len ;
+            while((len = fis.read(buf)) != -1){
+                fos.write(buf, 0, len);
+            }
+            fos.flush();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            try {
+                fis.close();
+                fos.close();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+ 
 }
-
-
-

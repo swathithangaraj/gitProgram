@@ -6,7 +6,7 @@ import java.util.List;
 import entity.Subject;
 
 /**
- * Ä£ÄâÊı¾İ½á¹¹
+ * æ•°æ®ç»“æ„   æ¨¡æ‹Ÿ
  * @author ronaldoGT
  *
  */
@@ -22,7 +22,7 @@ public class DataStructure {
 	}
 	
 	/**
-	 * Ê÷½á¹¹
+	 * æ ‘  ç»“æ„
 	 */
 	public void tree(){
 		List<Subject> list = addData();

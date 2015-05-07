@@ -9,12 +9,12 @@ import java.sql.SQLException;
 
 public class SqlOperation {
 	/**
-	 * Ìá¹©Êı¾İ¿âµÄ²Ù×÷
+	 * æä¾›æ•°æ®åº“çš„æ“ä½œ
 	 */	
 	public static final String DBDRIVER="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	public static final String DBURL="jdbc:sqlserver://localhost:1433;databaseName=jspSay";
-	private static final String DBUSER ="sa";//ÓÃ»§Ãû
-	private static final String PASSWORD = "123456";//ÃÜÂë
+	private static final String DBUSER ="sa";//ç”¨æˆ·å
+	private static final String PASSWORD = "123456";//å¯†ç 
 	private SqlOperation so=new SqlOperation();
 	
 	static{
@@ -27,7 +27,7 @@ public class SqlOperation {
 	public static Connection getConnection(){
 		Connection connection=null;
 		try {
-			connection=DriverManager.getConnection(DBURL,DBUSER,PASSWORD);//½¨Á¢µ½Ö¸¶¨Êı¾İ¿âµÄURLÁ´½Ó£¬·µ»Øconnnection
+			connection=DriverManager.getConnection(DBURL,DBUSER,PASSWORD);//å»ºç«‹åˆ°æŒ‡å®šæ•°æ®åº“çš„URLé“¾æ¥ï¼Œè¿”å›connnection
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -39,9 +39,9 @@ public class SqlOperation {
 		//String sql="INSERT INTO tb_user VALUES ('"+username+"','"+password+"','"+sex+"','"+type+"')";
 		String sql="select * from tb_user";
 		PreparedStatement pst=null;
-		ResultSet rs = null;//²éÑ¯µÄ½á¹û¼¯
+		ResultSet rs = null;//æŸ¥è¯¢çš„ç»“æœé›†
 		try {
-			pst=con.prepareStatement(sql);//½«²ÎÊı»¯µÄsqlÓï¾äËÍµ½Êı¾İ¿â
+			pst=con.prepareStatement(sql);//å°†å‚æ•°åŒ–çš„sqlè¯­å¥é€åˆ°æ•°æ®åº“
 			rs = pst.executeQuery();
 		} catch (Exception e) {
 			e.printStackTrace();

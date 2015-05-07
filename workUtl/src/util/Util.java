@@ -6,17 +6,30 @@ public class Util {
 
 	private static Util util = new Util();
 	/**
-	 * ¸ÃÀà·â×°¹¤¾ßÀà
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 	}
 	
+	//(a+aa+aaa+...+bä¸ªa)
+	private int twoNumber(int a,int b){
+		int sum = 0;
+		int i = 0;
+		int one = 0;
+		for(i=0;i<b;i++){
+			int m = util.power(10,i);
+			//int m = (int)Math.pow(a, i);
+			sum+=m*a;
+			one+=sum;		
+		}
+		return one;
+	} 
+	
 	/**
-	 * Ëæ»úÊı,
-	 * @param min   ×îĞ¡Ëæ»úÊı
-	 * @param max	 ×î´óËæ»úÊı
+	 * ç”Ÿæˆéšæœºæ•°,(min,max)
+	 * @param min   
+	 * @param max	
 	 * @return
 	 */
 	public int RandomNumber(int min,int max){
@@ -26,9 +39,9 @@ public class Util {
 	}
 	
 	/**
-	 * Êä³ö´Î·½ÔËËã
-	 * @param x   µ×Êı
-	 * @param n	     Ö¸Êı
+	 * æ¬¡æ–¹
+	 * @param x   åº•æ•°
+	 * @param n	   æŒ‡æ•°
 	 * @return
 	 */
 	public int power(int x,int n){

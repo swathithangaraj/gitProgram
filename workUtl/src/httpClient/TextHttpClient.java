@@ -35,26 +35,26 @@ public class TextHttpClient {
 	}
 	
 	public void httpClient(){
-		 //网上很多教程使用的都是：HttpClient httpClient = new DefaultHttpClient();
-		 //但是httpclient4.3提供了全新的实现类：CloseableHttpClient
-		 CloseableHttpClient httpclient = HttpClients.createDefault();
-		 //HttpPost httppost = new HttpPost("http://localhost:8080/httpClient.html");
-		 HttpGet httpget = new HttpGet("http://localhost:8080/httpClient.html");
-		 CloseableHttpResponse response = null;
-		 try {
-			response = httpclient.execute(httpget);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			try {
-				response.close();
-				httpclient.close();
-			} catch (IOException e){
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} 
+		 //缃戜笂寰堝鏁欑▼浣跨敤鐨勯兘鏄細HttpClient httpClient = new DefaultHttpClient();
+        //浣嗘槸httpclient4.3鎻愪緵浜嗗叏鏂扮殑瀹炵幇绫伙細CloseableHttpClient
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        HttpPost httppost = new HttpPost("http://localhost:8080/httpClient.html");
+        //HttpGet httpget = new HttpGet("http://localhost:8080/httpClient.html");
+        CloseableHttpResponse response = null;
+        try {
+           response = httpclient.execute(httppost);
+       } catch (Exception e) {
+           // TODO Auto-generated catch block
+           e.printStackTrace();
+       }finally{
+           try {
+               response.close();
+               httpclient.close();
+           } catch (IOException e){
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+           }
+       }
 	}
 	
 	public void upload() {

@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * Ïß³Ì³Ø²âÊÔ
+ * çº¿ç¨‹æ± æµ‹è¯•
  * @author ronaldoGT
  *
  */
@@ -22,13 +22,13 @@ public class ThreadPool {
 	}
 	
 	/**
-	 * ²âÊÔÏß³Ì³Ø
+	 * æµ‹è¯•çº¿ç¨‹æ± 
 	 */
 	public void textExecutor(){
 		Runnable r = new MultiThread();
-		//ÎªÔ¤¶¨Ö´ĞĞ¶ø¹¹½¨µÄµ¥Ïß³Ì¡°³Ø¡±£¬Ò»¸öÏß³ÌµÄÈ«²¿ÈÎÎñÖ´ĞĞÍêÖ®ºó²Å»áÖ´ĞĞ½ÓÏÂÀ´µÄÏß³Ì
+		//ä¸ºé¢„å®šæ‰§è¡Œè€Œæ„å»ºçš„å•çº¿ç¨‹â€œæ± â€ï¼Œä¸€ä¸ªçº¿ç¨‹çš„å…¨éƒ¨ä»»åŠ¡æ‰§è¡Œå®Œä¹‹åæ‰ä¼šæ‰§è¡Œæ¥ä¸‹æ¥çš„çº¿ç¨‹
 		ExecutorService pool = Executors. newSingleThreadExecutor();
-		//ÎªÔ¤¶¨Ö´ĞĞ¶ø¹¹½¨µÄ¹Ì¶¨Ïß³Ì³Ø,¿É²¢·¢Ö´ĞĞ¶àÏß³ÌµÄÈÎÎñ
+		//ä¸ºé¢„å®šæ‰§è¡Œè€Œæ„å»ºçš„å›ºå®šçº¿ç¨‹æ± ,å¯å¹¶å‘æ‰§è¡Œå¤šçº¿ç¨‹çš„ä»»åŠ¡
 		ExecutorService numPool = Executors.newScheduledThreadPool(3);
 		MyText m1 = new MyText("zhangchao");
 		MyText m2 = new MyText("jimmy");
@@ -36,7 +36,7 @@ public class ThreadPool {
 		numPool.execute(m1);
 		numPool.execute(m2);
 		numPool.execute(m3);
-		numPool.shutdown();//¹Ø±Õ·şÎñ£¬ÏÈÍê³ÉÄÇĞ©ÒÑ¾­Ìá½»ÁËµÄÈÎÎñ£¬µ«ÊÇ²»ÔÙ½ÓÊÜĞÂÈÎÎñ
+		numPool.shutdown();//å…³é—­æœåŠ¡ï¼Œå…ˆå®Œæˆé‚£äº›å·²ç»æäº¤äº†çš„ä»»åŠ¡ï¼Œä½†æ˜¯ä¸å†æ¥å—æ–°ä»»åŠ¡
 	}
 }
 

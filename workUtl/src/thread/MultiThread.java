@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * java ¶àÏß³Ì
+ * java å¤šçº¿ç¨‹
  * @author ronaldoGT
  *
  */
@@ -27,7 +27,7 @@ public class MultiThread implements Runnable{
 
 	
 	/**
-	 * Í¬²½²âÊÔ
+	 * åŒæ­¥æµ‹è¯•
 	 */
 	public void textTongBu(){
 		Runnable r = new MultiThread();		
@@ -49,8 +49,8 @@ public class MultiThread implements Runnable{
 		Thread t3 = new Thread(tg,r,"t3");
 		System.out.println(Thread.currentThread());
 		t1.start();
-		tg.interrupt();//ÖĞ¶ÏÏß³Ì×éÖĞµÄËùÓĞÏß³Ì
-		if(tg.activeCount()==0){//·µ»ØÏß³Ì×éÖĞ¿ÉÔËĞĞµÄÏß³ÌÊı
+		tg.interrupt();//ä¸­æ–­çº¿ç¨‹ç»„ä¸­çš„æ‰€æœ‰çº¿ç¨‹
+		if(tg.activeCount()==0){//è¿”å›çº¿ç¨‹ç»„ä¸­å¯è¿è¡Œçš„çº¿ç¨‹æ•°
 			System.out.println("all threads in the group tg have stopped");
 		}
 	}
@@ -61,7 +61,7 @@ public class MultiThread implements Runnable{
 			Thread thread = new Thread(r);
 			Thread thread2 = new Thread(r);
 			Thread thread3 = new Thread(r);
-			thread.setDaemon(true);//ÉèÖÃÊØ»¤Ïß³Ì
+			thread.setDaemon(true);//è®¾ç½®å®ˆæŠ¤çº¿ç¨‹
 			thread.start();
 			try {
 				Thread.sleep(100);
@@ -74,7 +74,7 @@ public class MultiThread implements Runnable{
 	}
 	
 	
-	/*--------------------------------------ÒÔÏÂÎªÔËĞĞÊ±²âÊÔ·½·¨---------------------------------------*/
+	/*--------------------------------------ä»¥ä¸‹ä¸ºè¿è¡Œæ—¶æµ‹è¯•æ–¹æ³•---------------------------------------*/
 	
 	public void run(){
 		//textReentrantLock();
@@ -108,10 +108,10 @@ public class MultiThread implements Runnable{
 		try {
 			while(index==1000){
 				System.out.println("no:"+index);
-				con.await();	//°Ñ¸ÃÏß³Ì·Åµ½Ìõ¼şµÄµÈ´ı¼¯ÖĞÈ¥	
+				con.await();	//æŠŠè¯¥çº¿ç¨‹æ”¾åˆ°æ¡ä»¶çš„ç­‰å¾…é›†ä¸­å»	
 				//Thread.sleep(10);	
 			}
-			con.signalAll();//½â³ı¸ÃÌõ¼şµÈ´ı¼¯ÖĞËùÓĞÏß³ÌµÄ×èÈû×´Ì¬
+			con.signalAll();//è§£é™¤è¯¥æ¡ä»¶ç­‰å¾…é›†ä¸­æ‰€æœ‰çº¿ç¨‹çš„é˜»å¡çŠ¶æ€
 			index+=100;
 			System.out.println("1000index:"+index);
 		} catch (Exception e) {
@@ -122,7 +122,7 @@ public class MultiThread implements Runnable{
 	}
 	
 	public void textReentrantLock(){
-		lock.lock();//¼ÓËø
+		lock.lock();//åŠ é”
 		try {
 			index-=100;
 			Thread.sleep(100);
@@ -131,7 +131,7 @@ public class MultiThread implements Runnable{
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}finally{
-			lock.unlock();//½âËø
+			lock.unlock();//è§£é”
 		}
 	}
 }

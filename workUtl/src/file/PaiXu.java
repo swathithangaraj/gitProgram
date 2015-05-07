@@ -7,13 +7,7 @@ import java.util.List;
 import util.Util;
 
 
-
-
 /**
- * ¹ØÓÚÅÅĞòËã·¨,¾­¹ı²âÊÔ£¬ÅÅĞòËã·¨µÄËÙ¶ÈÖ»È¡¾öÓÚÅÅĞòµÄ¹æÄ££¬¶ø²»È¡¾öÓÚÅÅĞòÊıµÄ´óĞ¡
- * ¹æÄ£·ºÖ¸Êı×é³¤¶È
- * µ±³¤¶È<15£ºÃ°ÅİÅÅĞòËÙ¶È¸ü¿ì
- * µ±³¤¶È>15:¿ìËÙ¸ü¿ì£¬²¢ÇÒµ±¹æÄ£Ô½À´Ô½´óÒÔºó£¬¿ìÅÅ»á
  * @author RonaldoGT
  *
  */
@@ -27,108 +21,97 @@ public class PaiXu {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//²âÊÔ¿ªÊ¼Ê±¼ä£¬½áÊøÊ±¼ä
 		long startime;
 		long endtime;
 		List<Integer> arrayList = new ArrayList<Integer>();
 
-		arrayList = paiXu.returnList(15000);//Êı×é¹æÄ£
+		arrayList = paiXu.returnList(15000);
 		int size = arrayList.size();
 		int[] array = new int[size];
 
-		//½«ArrayList×ª»»Îª  int  Êı×é
 		for(int i=0;i<array.length;i++){
 			array[i]=arrayList.get(i); 
 		}
 		
-		//ÏÂÃæÎªÅÅĞòËã·¨ĞÔÄÜ²âÊÔ´úÂë
 		
-		startime = System.nanoTime();
-		paiXu.MaoPao(array,array.length);
-		endtime = System.nanoTime();
-		System.out.println("maopao=="+(endtime-startime));
-		
-		startime = System.nanoTime();
-		paiXu.kuaiSu(array,0,size-1);
-		endtime = System.nanoTime();
-		System.out.println("kuaisu=="+(endtime-startime));
-		
-		
-		
-		
-	
-//		for(int i=0;i<array.length;i++){
-//			System.out.print(","+array[i]);
-//		}
+//		startime = System.nanoTime();
+//		paiXu.MaoPao(array,array.length);
+//		endtime = System.nanoTime();
+//		System.out.println("maopao=="+(endtime-startime));
+//		
+//		startime = System.nanoTime();
+//		paiXu.kuaiSu(array,0,size-1);
+//		endtime = System.nanoTime();
+//		System.out.println("kuaisu=="+(endtime-startime));
 	}
 	
 	/**
-	 * ·µ»ØÒ»¸ö  ³¤¶ÈÎªsizeµÄ  ÄÚ²¿È«ÊÇËæ»úintÀàĞÍµÄ  ArrayList
-	 * @param size
-	 * @return
-	 */
-	public ArrayList returnList(int size){
-		ArrayList array = new ArrayList();
-		int i=0;
-		while(i<size){
-			int index = util.RandomNumber(0, 10000);//·µ»ØËæ»úÊı£¬·¶Î§0-10000
-			array.add(index);
-			i++;
-		}
-		return array;
-	}
+     * è¿”å›ä¸€ä¸ª  é•¿åº¦ä¸ºsizeçš„  å†…éƒ¨å…¨æ˜¯éšæœºintç±»å‹çš„  ArrayList
+     * @param size
+     * @return
+     */
+    public ArrayList returnList(int size){
+        ArrayList array = new ArrayList();
+        int i=0;
+        while(i<size){
+            int index = util.RandomNumber(0, 10000);//è¿”å›éšæœºæ•°ï¼ŒèŒƒå›´0-10000
+            array.add(index);
+            i++;
+        }
+        return array;
+    }
 
 	/**
-	 * ¿ìËÙÅÅĞò
+	 * å¿«æ’
 	 * @param array
 	 * @param left    
 	 * @param right
 	 */
-	public void kuaiSu(int[] array,int left,int right){
-		if(left<right){//ÅĞ¶ÏÓĞÃ»ÓĞ±éÀúÍêÊı×é
-			int star = left;
-			int end = right;
-			int key = array[star];//¶¨ÒåÔİ´ækeyÖµ£¬²¢ÓÃkey·Ö±ğ±È½ÏÊı×é×óÓÒÔªËØ
-			
-			if((array == null)||(end == 0)){
-				return;//Èç¹ûÊı×éÎªnullÔò·µ»Ø
-			}else{
-				while(star<end){
-					while(star<end&&array[end]>key){
-						end--;
-					}
-					array[star]=array[end];
-					while(star<end&&array[star]<=key){
-						star++;
-					}
-					array[end]=array[star];
-				}
-				array[star]=key;
-				kuaiSu(array,left,star-1);//½«×ó²àÊı×éµİ¹é£¬²¢ÖØĞÂÅÅĞò
-				kuaiSu(array,star+1,right);//½«ÓÒ²àÊı×éµİ¹é£¬²¢ÖØĞÂÅÅĞò
-			}
-		}
-	}
+    public void kuaiSu(int[] array,int left,int right){
+        if(left<right){//åˆ¤æ–­æœ‰æ²¡æœ‰éå†å®Œæ•°ç»„
+            int star = left;
+            int end = right;
+            int key = array[star];//å®šä¹‰æš‚å­˜keyå€¼ï¼Œå¹¶ç”¨keyåˆ†åˆ«æ¯”è¾ƒæ•°ç»„å·¦å³å…ƒç´ 
+             
+            if((array == null)||(end == 0)){
+                return;//å¦‚æœæ•°ç»„ä¸ºnullåˆ™è¿”å›
+            }else{
+                while(star<end){
+                    while(star<end&&array[end]>key){
+                        end--;
+                    }
+                    array[star]=array[end];
+                    while(star<end&&array[star]<=key){
+                        star++;
+                    }
+                    array[end]=array[star];
+                }
+                array[star]=key;
+                kuaiSu(array,left,star-1);//å°†å·¦ä¾§æ•°ç»„é€’å½’ï¼Œå¹¶é‡æ–°æ’åº
+                kuaiSu(array,star+1,right);//å°†å³ä¾§æ•°ç»„é€’å½’ï¼Œå¹¶é‡æ–°æ’åº
+            }
+        }
+    }
 	
-	/**
-	 * Ã°ÅİÅÅĞò
-	 * @param array£ºÒªÅÅĞòµÄÊı×é
-	 * @param arrayLength£ºÊı×é³¤¶È
-	 */
-	public void MaoPao(int[] array,int arrayLength){		
-		int temp;
-		for(int i=0;i<arrayLength;i++){
-			if(i+1<arrayLength&&array[i]>array[i+1]){
-				temp =array[i];
-				array[i]=array[i+1];
-				array[i+1]=temp;
-			}
-		}
-		arrayLength--;
-		if(arrayLength>0){
-			MaoPao(array,arrayLength);
-		}
-	}
+    /**
+     * å†’æ³¡æ’åº
+     * @param arrayï¼šè¦æ’åºçš„æ•°ç»„
+     * @param arrayLengthï¼šæ•°ç»„é•¿åº¦
+     */
+    public void MaoPao(int[] array,int arrayLength){        
+        int temp;
+        for(int i=0;i<arrayLength;i++){
+            if(i+1<arrayLength&&array[i]>array[i+1]){
+                temp =array[i];
+                array[i]=array[i+1];
+                array[i+1]=temp;
+            }
+        }
+        arrayLength--;
+        if(arrayLength>0){
+            MaoPao(array,arrayLength);
+        }
+    }
 	
 
 }

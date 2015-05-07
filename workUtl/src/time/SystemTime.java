@@ -9,47 +9,47 @@ import java.util.Locale;
 public class SystemTime {
 
 	/**
-	 * ¸ÃÀàÌá¹©ÓĞ¹ØÏµÍ³Ê±¼äµÄÒ»ÏµÁĞ·½·¨
+	 * è¯¥ç±»æä¾›æœ‰å…³ç³»ç»Ÿæ—¶é—´çš„ä¸€ç³»åˆ—æ–¹æ³•
 	 */
-	//·µ»ØCalendar¶ÔÏó£¬
+	//è¿”å›Calendarå¯¹è±¡ï¼Œ
 	public Calendar getTimeField(){
 		Calendar cal=Calendar.getInstance();
-		 // int day = cal.get(Calendar.DATE);//µ±Ç°Ê±¼äÔÚÔÂÖĞµÄÌìÊı
-		 // int month = cal.get(Calendar.MONTH) + 1;//ÔÂ·İ´Ó0¿ªÊ¼
+		// int day = cal.get(Calendar.DATE);//å½“å‰æ—¶é—´åœ¨æœˆä¸­çš„å¤©æ•°
+		 // int month = cal.get(Calendar.MONTH) + 1;//æœˆä»½ä»0å¼€å§‹
 		 // int year = cal.get(Calendar.YEAR);
-		 // int dayweek = cal.get(Calendar.DAY_OF_WEEK);//ÖÜÈÕ¿ªÊ¼£¬ÖÜÁùÊÇ×îºóÒ»Ìì
+		 // int dayweek = cal.get(Calendar.DAY_OF_WEEK);//å‘¨æ—¥å¼€å§‹ï¼Œå‘¨å…­æ˜¯æœ€åä¸€å¤©
 		 // int daymonth = cal.get(Calendar.DAY_OF_MONTH);
 		 // int dayyear = cal.get(Calendar.DAY_OF_YEAR);
 		 // int hour = cal.get(Calendar.HOUR_OF_DAY);
-		 // System.currentTimeMillis();//µ±Ç°µÄÊ±¼äµÄlongĞÍµÄÊ±¼äµÄºÁÃëÖµ£¬Õâ¸öÖµÊµ¼ÊÉÏÊÇµ±Ç°Ê±¼äÖµÓë1970ÄêÒ»ÔÂÒ»ºÅÁãÊ±Áã·ÖÁãÃëÏà²îµÄºÁÃëÊı¡£
+		 // System.currentTimeMillis();//å½“å‰çš„æ—¶é—´çš„longå‹çš„æ—¶é—´çš„æ¯«ç§’å€¼ï¼Œè¿™ä¸ªå€¼å®é™…ä¸Šæ˜¯å½“å‰æ—¶é—´å€¼ä¸1970å¹´ä¸€æœˆä¸€å·é›¶æ—¶é›¶åˆ†é›¶ç§’ç›¸å·®çš„æ¯«ç§’æ•°ã€‚
 		 return cal;
 	}
 	
-	//ÉèÖÃÏµÍ³Ê±¼ä£¬²¢·µ»ØÉè¶¨Ê±¼äºóµÄÏµÍ³Ê±¼ä¶ÔÏó
+	//è®¾ç½®ç³»ç»Ÿæ—¶é—´ï¼Œå¹¶è¿”å›è®¾å®šæ—¶é—´åçš„ç³»ç»Ÿæ—¶é—´å¯¹è±¡
 	public Date setSystemTime(String newDate){
 		Date date=new Date();
-		//SimpleDateFormat sdf = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ_HHÊ±mm·ÖssÃë",Locale.SIMPLIFIED_CHINESE);//±êÊ¶±¾µØÓïÑÔ
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ_HHÊ±mm·Ö");//±êÊ¶±¾µØÓïÑÔ
+ 		//SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥_HHæ—¶mmåˆ†ssç§’",Locale.SIMPLIFIED_CHINESE);//æ ‡è¯†æœ¬åœ°è¯­è¨€
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥_HHæ—¶mmåˆ†");//æ ‡è¯†æœ¬åœ°è¯­è¨€
 		
 		try {
-			date = sdf.parse(newDate);//ÀıÈç£ºnewDate="2006Äê07ÔÂ01ÈÕ_14Ê±00·Ö00Ãë"
+			date = sdf.parse(newDate);//ä¾‹å¦‚ï¼šnewDate="2006å¹´07æœˆ01æ—¥_14æ—¶00åˆ†00ç§’"
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return date;
 	}
 	
-	//¸ù¾İ²ÎÊı¸ñÊ½»ñÈ¡ÏµÍ³Ê±¼ä,ÀıÈç:
-	public void getSystemTime(String formatday){//"yyyyÄê¡ª¡ªMMÔÂ¡ª¡ªddÈÕ    ¡¾HH:mm:ss¡¿"
+	//æ ¹æ®å‚æ•°æ ¼å¼è·å–ç³»ç»Ÿæ—¶é—´,ä¾‹å¦‚:
+	public void getSystemTime(String formatday){//"yyyyå¹´â€”â€”MMæœˆâ€”â€”ddæ—¥    ã€HH:mm:ssã€‘"
 		Date date=new Date();
-		SimpleDateFormat sdf=new SimpleDateFormat(formatday);//ÈÕÀú¸ñÊ½»¯
+		SimpleDateFormat sdf=new SimpleDateFormat(formatday);//æ—¥å†æ ¼å¼åŒ–
 		String time=sdf.format(date);
 	}
 	
 	
 	public static void main(String[] args) {
 		SystemTime sy=new SystemTime();
-		Date date = sy.setSystemTime("2006Äê07ÔÂ01ÈÕ_14Ê±00·Ö");
+		Date date = sy.setSystemTime("2006å¹´07æœˆ01æ—¥_14æ—¶00åˆ†");
 		System.out.println(new java.sql.Timestamp(date.getTime()));
 		System.out.println(date);
 		
