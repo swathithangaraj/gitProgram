@@ -1,5 +1,7 @@
 package thread;
 
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -17,6 +19,7 @@ public class MultiThread implements Runnable{
 	private static MultiThread multiThread = new MultiThread();
 	private int index = 1000;
 	private Lock lock = new ReentrantLock();
+	private CyclicBarrier cb;
 	/**
 	 * @param args
 	 */
@@ -24,7 +27,6 @@ public class MultiThread implements Runnable{
 		// TODO Auto-generated method stub
 		multiThread.textTongBu();
 	}
-
 	
 	/**
 	 * 同步测试
@@ -41,6 +43,7 @@ public class MultiThread implements Runnable{
 		}
 	}
 	
+	//线程组
 	public void textThreadGroup(){
 		Runnable r = new MultiThread();
 		ThreadGroup tg = new ThreadGroup("textGroup");
@@ -79,10 +82,10 @@ public class MultiThread implements Runnable{
 	public void run(){
 		//textReentrantLock();
 		//textCondition();
-		textSynchronized();
+		//textSynchronized();
 	}
 	
-	
+	//同步锁
 	public synchronized void textSynchronized(){	
 		try {
 			while(index==1000){
@@ -101,6 +104,7 @@ public class MultiThread implements Runnable{
 		}	
 	}
 	
+	//条件锁
 	public void textCondition(){
 		Condition con = lock.newCondition();
 		lock.lock();
@@ -121,6 +125,7 @@ public class MultiThread implements Runnable{
 		}	
 	}
 	
+	//加锁
 	public void textReentrantLock(){
 		lock.lock();//加锁
 		try {
