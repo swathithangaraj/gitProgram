@@ -27,7 +27,7 @@ public class Util {
 	} 
 	
 	/**
-	 * 生成随机数,(min,max)
+	 * 生成指定区间随机数,(min,max)
 	 * @param min   
 	 * @param max	
 	 * @return
@@ -53,4 +53,16 @@ public class Util {
 		return sum;
 	}
 
+	/**
+	 * 阶乘
+	 * @param i
+	 * @return
+	 */
+	public int jieChen(int i){
+		int sum=1;
+		if(i>0){
+			sum=i*(jieChen(--i));
+		}
+		return sum;
+	}
 }
