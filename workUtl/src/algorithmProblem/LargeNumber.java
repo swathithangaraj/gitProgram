@@ -6,9 +6,9 @@ package algorithmProblem;
  * @author ronaldoGT
  *
  */
-public class BigNumber {
+public class LargeNumber {
 	
-	private static BigNumber bigNum = new BigNumber();
+	private static LargeNumber bigNum = new LargeNumber();
 
 	/**
 	 * @param args
@@ -18,7 +18,7 @@ public class BigNumber {
 		String addend = "199124184714717423989946727492472947629947662499747018091044924934153412170489450300035477372628428192873462348345625351232173";
 		//被加数
 		String augend = "987665553729018375950271635482903746589103989273294612201023454891018289199281922526981919773767374921010481924242565768827228398341849184889299292";
-		String str = bigNum.addNumber(addend,augend);
+		String str = bigNum.largeNumber(addend, augend);
 		System.out.println("str:"+bigNum.takeBack(str));
 	}
 	
@@ -29,7 +29,7 @@ public class BigNumber {
 	 * @param s2
 	 * @return
 	 */
-	public String addNumber(String s1,String s2){
+	public String largeNumber(String s1,String s2){
 		String min = s1.length() <= s2.length() ? s1:s2;
 		String max = s1.length() > s2.length() ? s1:s2;
 		int minSize = min.length();
@@ -55,7 +55,7 @@ public class BigNumber {
 			String highPosition = max.substring(0,maxSize-minSize);//截取max超出min的部分
 			if(highPosition.length()>9){//Integer是32位，范围-2147483648 到2147483648
 				//此处开始递归，确保每次送入的数都是正序排列的
-				result.append(addNumber(highPosition,index+""));
+				result.append(largeNumber(highPosition, index + ""));
 			}else{
 				result.append(takeBack(Integer.parseInt(highPosition)+index+""));
 			}
