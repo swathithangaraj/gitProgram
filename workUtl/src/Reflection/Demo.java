@@ -12,7 +12,7 @@ public class Demo {
 	
 	public void textReflec() throws Exception{
 		
-		Class demo = Class.forName("file.PaiXu");
+		Class demo = Class.forName("algorithmProblem.PaiXu");
 
 		Method m[] = demo.getMethods(); 
         
