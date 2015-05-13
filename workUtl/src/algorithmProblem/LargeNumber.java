@@ -8,7 +8,7 @@ package algorithmProblem;
  */
 public class LargeNumber {
 	
-	private static LargeNumber bigNum = new LargeNumber();
+	private static LargeNumber largeNum = new LargeNumber();
 
 	/**
 	 * @param args
@@ -18,8 +18,9 @@ public class LargeNumber {
 		String addend = "199124184714717423989946727492472947629947662499747018091044924934153412170489450300035477372628428192873462348345625351232173";
 		//被加数
 		String augend = "9876655537290183759502716354829037465891039892732946122010234548910182881922526981973767374921010481924242565768827228398341849184889299292";
-		String str = bigNum.largeNumber(addend, augend);
-		System.out.println("number ="+bigNum.takeBack(str));
+		String str = largeNum.largeNumber(addend, augend);
+		System.out.println("number ="+largeNum.takeBack(str));
+		System.out.println(Integer.toBinaryString(1111));
 	}
 	
 	/**
