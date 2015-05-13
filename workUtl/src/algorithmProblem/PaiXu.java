@@ -34,7 +34,7 @@ public class PaiXu {
 		
 		
 //		startime = System.nanoTime();
-//		paiXu.MaoPao(array,array.length);
+//		paiXu.maoPao(array,array.length);
 //		endtime = System.nanoTime();
 //		System.out.println("maopao=="+(endtime-startime));
 //		
@@ -97,7 +97,7 @@ public class PaiXu {
      * @param array：要排序的数组
      * @param arrayLength：数组长度
      */
-    public void MaoPao(int[] array,int arrayLength){        
+    public void maoPao(int[] array,int arrayLength){
         int temp;
         for(int i=0;i<arrayLength;i++){
             if(i+1<arrayLength&&array[i]>array[i+1]){
@@ -108,7 +108,7 @@ public class PaiXu {
         }
         arrayLength--;
         if(arrayLength>0){
-            MaoPao(array,arrayLength);
+            maoPao(array,arrayLength);
         }
     }
 	

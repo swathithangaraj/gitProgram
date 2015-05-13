@@ -8,19 +8,19 @@ package algorithmProblem;
  */
 public class LargeNumber {
 	
-	private static LargeNumber bigNum = new LargeNumber();
+	private static LargeNumber largeNum = new LargeNumber();
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		//加数
-		String addend = "19912418471471742398994672749247294762994766249974701809104492493415341217048945030003737562873562937592854" +
-						"5487913154087846548155546465466464887878797987878454601524498545477372628428192873462348345625351232173";
+		String addend = "199124184714717423989946727492472947629947662499747018091044924934153412170489450300035477372628428192873462348345625351232173";
 		//被加数
-		String augend = "987665553729018375950271635482903746589103989273294612201023454891018289199281922526981919773767374921010481924242565768827228398341849184889299292";
-		String str = bigNum.largeNumber(addend, augend);
-		System.out.println("number = "+bigNum.takeBack(str));
+		String augend = "9876655537290183759502716354829037465891039892732946122010234548910182881922526981973767374921010481924242565768827228398341849184889299292";
+		String str = largeNum.largeNumber(addend, augend);
+		System.out.println("number ="+largeNum.takeBack(str));
+		System.out.println(Integer.toBinaryString(1111));
 	}
 	
 	/**
@@ -48,7 +48,7 @@ public class LargeNumber {
 			result.append(mark);
 		}
 		//当且仅当max,min位数一样时,并且发生进位
-		if(max.length()<=min.length()){
+		if(maxSize <= minSize){
 			if(index>0) {
 				result.append(index);
 			}
