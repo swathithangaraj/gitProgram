@@ -1,3 +1,4 @@
+/*
 package httpClient;
 
 import org.apache.http.HttpEntity;
@@ -21,17 +22,21 @@ import java.io.IOException;
 
 public class TextHttpClient {
 
-	/**
+	*/
+/**
 	 * @param args
-	 */
+	 *//*
+
 	public static void main(String[] args) {
 		TextHttpClient http = new TextHttpClient();
 		
 		//http.upload();
-		/*for(int i=0;i<1;i++){
+		*/
+/*for(int i=0;i<1;i++){
 			http.httpClient();
 			System.out.println(i);
-		}*/
+		}*//*
+
 	}
 	
 	public void httpClient(){
@@ -96,3 +101,4 @@ public class TextHttpClient {
     }
 
 }
+*/
